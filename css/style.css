@@ -1,0 +1,814 @@
+/*css vars*/
+
+@import url(../css/partials/variables.css);
+
+/*global styling*/
+
+@import url(../css/partials/_global.css);
+
+/*****************start navigation******************/
+
+.header .main-menu .navbar .navbar-brand {
+    padding: 0 2rem 0 5rem;
+}
+
+.header .main-menu .navbar {
+    padding: rem 20rem;
+}
+
+.header .main-menu .nav-item .nav-link {
+    font: normal 500 15px var(--roboto);
+    line-height: 2px;
+    text-transform: uppercase;
+    padding: 1.7rem;
+    color: var(--title-color);
+}
+
+.header .main-menu .navbar-nav .active a {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header .main-menu .navbar-nav a:hover {
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/*****************end navigation********************/
+
+
+/*******************slider*******************/
+
+#slider {
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#slider input[type=radio] {
+    display: none;
+}
+
+#slider label {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#slides {
+    padding: 10px;
+    border: 3px solid #ccc;
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#slide1:checked~#slides .inner {
+    margin-left: 0;
+}
+
+#slide2:checked~#slides .inner {
+    margin-left: -100%;
+}
+
+#slide3:checked~#slides .inner {
+    margin-left: -200%;
+}
+
+#slide4:checked~#slides .inner {
+    margin-left: -300%;
+}
+
+#slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 300px;
+}
+
+#slides .slide {
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+}
+
+#slides .slide_1 {
+    background: #dcdcdd;
+}
+
+#slides .slide_2 {
+    background: #c5c3c6;
+}
+
+#slides .slide_3 {
+    background: #787879;
+}
+
+#slides .slide_4 {
+    background: #46494c;
+}
+
+.slide-content {
+    padding: 10px;
+}
+
+#controls {
+    margin: -130px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    position: relative;
+}
+
+#controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+}
+
+#controls label:hover {
+    opacity: 1;
+}
+
+#slide1:checked~#controls label:nth-child(2),
+#slide2:checked~#controls label:nth-child(3),
+#slide3:checked~#controls label:nth-child(4),
+#slide4:checked~#controls label:nth-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+    float: right;
+    margin: 0 -50px 0 0;
+    display: block;
+}
+
+#slide1:checked~#controls label:nth-last-child(2),
+#slide2:checked~#controls label:nth-last-child(3),
+#slide3:checked~#controls label:nth-last-child(4),
+#slide4:checked~#controls label:nth-last-child(1) {
+    background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+    float: left;
+    margin: 0 0 0 -50px;
+    display: block;
+}
+
+#bullets {
+    margin: 150px 0 0;
+    text-align: center;
+}
+
+#bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+#slide1:checked~#bullets label:nth-child(1),
+#slide2:checked~#bullets label:nth-child(2),
+#slide3:checked~#bullets label:nth-child(3),
+#slide4:checked~#bullets label:nth-child(4) {
+    background: #444;
+}
+
+
+/******************end slider********************/
+
+
+/******************start header********************/
+
+#header {
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#header .header {
+    max-width: 1200px;
+    margin: 0;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+
+#header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #444;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#header h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+
+#header h1:nth-child(1) {
+    animation-delay: 1s;
+}
+
+#header h1:nth-child(2) {
+    animation-delay: 2s;
+}
+
+#header h1:nth-child(3) {
+    text-transform: uppercase;
+    animation: text_reveal_name 0.5s ease forwards;
+    animation-delay: 3s;
+}
+
+#header h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ccc;
+    animation: text_reveal_box 1s ease;
+    animation-delay: 0.5s;
+}
+
+#header h1:nth-child(1) span {
+    animation-delay: 0.5s;
+}
+
+#header h1:nth-child(2) span {
+    animation-delay: 1.5s;
+}
+
+#header h1:nth-child(3) span {
+    animation-delay: 2.5s;
+}
+
+.header-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #ccc;
+    background-color: transparent;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border: 2px solid #ccc;
+    letter-spacing: 0.1rem;
+    margin-top: 20px;
+    transition: 0.5s ease;
+    transition-property: background-color, color;
+    text-decoration: none;
+}
+
+.header-btn:hover {
+    color: #787879;
+    background-color: #ccc;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+
+/******************end header********************/
+
+
+/*mostfamous*/
+
+#mostfamous {}
+
+#mostfamous .mostfamous {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#mostfamous .ftop {
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.title span {
+    color: crimson;
+}
+
+#mostfamous .ftop p {
+    color: black;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+
+#mostfamous .fbottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+#mostfamous .famous-person {
+    flex-basis: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#mostfamous .famous-person:nth-child(1) {
+    background-image: url(../img/sliderimages/ummkulthum.jpg);
+}
+
+#mostfamous .famous-person:nth-child(2) {
+    background-image: url(../img/sliderimages/abdel.jpg);
+}
+
+#mostfamous .famous-person:nth-child(3) {
+    background-image: url(../img/sliderimages/fayrooz.jpg);
+}
+
+#mostfamous .famous-person:nth-child(4) {
+    background-image: url(../img/sliderimages/fariid.jpg);
+}
+
+#mostfamous .famous-person::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #787879;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+#mostfamous .fbottom .icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+#mostfamous .fbottom .icon img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#mostfamous .fbottom h2 {
+    font-size: 2rem;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#mostfamous .fbottom p {
+    color: whitesmoke;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+
+/*end mostfamous*/
+
+
+/*bestsongs*/
+
+#bestsongs .bestsongs {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#bestsongs .bestsongs-header h1 {
+    margin-bottom: 50px;
+}
+
+#bestsongs .all-songs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#bestsongs .song {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#bestsongs .song-info {
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #363738 0%, #969696 100%);
+    color: white;
+}
+
+#bestsongs .song-info h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#bestsongs .song-info h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+#bestsongs .song-info p {
+    color: #ccc;
+}
+
+#bestsongs .song-img {
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+}
+
+#bestsongs .song-img::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #787879;
+    opacity: 0.5;
+}
+
+#bestsongs .song-img img {
+    transition: 0.7s ease transform;
+}
+
+#bestsongs .song:hover .song-img img {
+    transform: scale(1.1);
+}
+
+
+/*end bestsongs*/
+
+
+/*musician*/
+
+#musician .musician {
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+#musician .c-left {
+    width: 250px;
+    height: 360px;
+}
+
+#musician .c-left img {
+    height: 100%;
+    width: 100%;
+}
+
+#musician .c-right {
+    width: 100%;
+}
+
+#musician .c-right h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1rem;
+    margin-bottom: 10px;
+}
+
+#musician .c-right p {
+    margin-bottom: 20px;
+}
+
+#musician .c-right .header-btn {
+    color: #363738;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+#musician .c-right .header-btn:hover {
+    background-color: crimson;
+}
+
+#musician .c-right a {
+    text-decoration: none;
+}
+
+#musician .c-left .musician-img {
+    position: relative;
+}
+
+#musician .c-left .musician-img::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 25px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid crimson;
+    z-index: -1;
+}
+
+
+/*end musician*/
+
+
+/*where to listen*/
+
+#whereto .whereto {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#whereto .where-items {
+    width: 400px;
+}
+
+#whereto .where-item {
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.3s ease box-shadow;
+}
+
+#whereto a {
+    text-decoration: none;
+}
+
+#whereto .where-item:hover {
+    box-shadow: 0px 0px 18px 0px #787879;
+}
+
+#whereto .icon {
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#whereto .icon img {
+    width: 100%;
+}
+
+#whereto .icon-info h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#whereto .icon-info h2 {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 300;
+}
+
+
+/*end where to listen*/
+
+
+/*****************start footer********************/
+
+footer.footer-area {
+    padding: 5rem 0;
+    background: url(../img/footer-bg.png) no-repeat;
+}
+
+footer.footer-area .social h5 {
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: 500;
+    font-style: normal;
+    font-family: var(--roboto);
+}
+
+footer.footer-area .social a>i {
+    font-size: 22px;
+    padding: 2rem;
+    color: var(--border-color);
+}
+
+footer.footer-area .social a>i:hover {
+    color: var(--primary-color2);
+}
+
+
+/*****************end footer********************/
+
+
+/*keyframes*/
+
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal {
+    100% {
+        color: #ccc;
+    }
+}
+
+@keyframes text_reveal_name {
+    100% {
+        color: #ccc;
+    }
+}
+
+
+/*End keyframes*/
+
+
+/*Media query for tablet*/
+
+@media only screen and (min-width:768px) {
+    .header-btn {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.title {
+        font-size: 6rem;
+    }
+    /*header*/
+    #header h1 {
+        font-size: 6rem;
+    }
+    /*end header*/
+    /*mostfamous*/
+    #mostfamous .fbottom .famous-person {
+        flex-basis: 45%;
+        margin: 2.5%;
+        height: 500px;
+    }
+    /*end mostfamous*/
+    /*Bestsongs*/
+    #bestsongs .song {
+        flex-direction: row;
+    }
+    #bestsongs .song:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    #bestsongs .song {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #bestsongs .all-songs .song-info {
+        height: 100%;
+    }
+    #bestsongs .all-songs .song-img {
+        height: 100%;
+        width: 64%;
+    }
+    /*end Bestsongs*/
+    /*musician*/
+    #musician .musician {
+        flex-direction: row;
+    }
+    #musician .c-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+    #musician .musician .c-left .musician-img::after {
+        left: -43px;
+        top: 43px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid crimson;
+    }
+    #musician .c-right {
+        padding: 30px;
+    }
+    #musician .c-right h1 {
+        text-align: left;
+    }
+    /*end musician*/
+    /*whereto*/
+    #whereto .whereto {
+        flex-direction: column;
+        padding: 100px 0;
+        align-self: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+    #whereto .where-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    #whereto .where-item {
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0px 0px 18px 0 #0000002c;
+        transition: .3s ease box-shadow;
+    }
+    #whereto .where-item {
+        margin: 20px;
+        flex-direction: column;
+    }
+    #whereto .where-item .icon {
+        width: 100px;
+    }
+    #whereto .where-item .icon-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+    /*end whereto*/
+}
+
+
+/*End Media query for tablet*/
+
+
+/*media query for desktop*/
+
+@media only screen and (min-width:1200px) {
+    #mostfamous .mostfamous {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+}
+
+
+/*end media query for desktop*/
